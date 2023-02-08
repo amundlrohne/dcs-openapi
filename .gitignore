@@ -8,6 +8,10 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+<<<<<<< HEAD
+=======
+env/
+>>>>>>> 5720389 (first commit)
 build/
 develop-eggs/
 dist/
@@ -19,6 +23,7 @@ lib64/
 parts/
 sdist/
 var/
+<<<<<<< HEAD
 wheels/
 pip-wheel-metadata/
 share/python-wheels/
@@ -26,6 +31,11 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+=======
+*.egg-info/
+.installed.cfg
+*.egg
+>>>>>>> 5720389 (first commit)
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -40,16 +50,26 @@ pip-delete-this-directory.txt
 # Unit test / coverage reports
 htmlcov/
 .tox/
+<<<<<<< HEAD
 .nox/
+=======
+>>>>>>> 5720389 (first commit)
 .coverage
 .coverage.*
 .cache
 nosetests.xml
 coverage.xml
+<<<<<<< HEAD
 *.cover
 *.py,cover
 .hypothesis/
 .pytest_cache/
+=======
+*,cover
+.hypothesis/
+venv/
+.python-version
+>>>>>>> 5720389 (first commit)
 
 # Translations
 *.mo
@@ -57,6 +77,7 @@ coverage.xml
 
 # Django stuff:
 *.log
+<<<<<<< HEAD
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
@@ -67,6 +88,8 @@ instance/
 
 # Scrapy stuff:
 .scrapy
+=======
+>>>>>>> 5720389 (first commit)
 
 # Sphinx documentation
 docs/_build/
@@ -74,6 +97,7 @@ docs/_build/
 # PyBuilder
 target/
 
+<<<<<<< HEAD
 # Jupyter Notebook
 .ipynb_checkpoints
 
@@ -127,3 +151,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+=======
+#Ipython Notebook
+.ipynb_checkpoints
+>>>>>>> 5720389 (first commit)
