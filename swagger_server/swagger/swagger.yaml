@@ -61,7 +61,8 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: "#/components/schemas/Student"
+                                type: number
+                                format: integer
                 "400":
                     description: invalid ID
                 "404":
@@ -101,7 +102,8 @@ components:
             type: object
             properties:
                 student_id:
-                    type: integer
+                    type: number
+                    format: integer
                 first_name:
                     type: string
                 last_name:
