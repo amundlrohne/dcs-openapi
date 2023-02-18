@@ -16,9 +16,10 @@ def add(student=None):
 
     try:
         doc_id = db.students.insert_one(student.to_dict()).inserted_id
-        return str(doc_id)
+        return student.student_id
     except errors.DuplicateKeyError:
-        return 'student_id already exists', 409
+        student.student_id = student.student_id + 1
+        return add(student)
 
 
 def get_by_id(student_id=None, subject=None):
