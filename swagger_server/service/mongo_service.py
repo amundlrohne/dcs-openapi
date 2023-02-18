@@ -14,6 +14,9 @@ def add(student=None):
     if res:
         return 'name already exists', 409
 
+    if not student.student_id:
+        student.student_id = 0
+
     try:
         doc_id = db.students.insert_one(student.to_dict()).inserted_id
         return student.student_id
