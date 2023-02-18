@@ -16,8 +16,8 @@ jobs:
               run: docker run -d -p 27017:27017 -host=172.17.0.2 --name mdb mongo:4 && sleep 5
             - name: Run docker
               run: |
-                  docker run -d -e 8080:8080 -p 8080:8080 -e MONGO_URI=mongodb://mdb:27017 --link "mdb" -host=172.17.0.2 $REPO_NAME/$IMAGE_NAME:latest && \
-                    docker ps && docker logs  && sleep 5
+                  docker run -d -e 8080:8080 -p 8080:8080 -e MONGO_URI=mongodb://mdb:27017 --link "mdb" --name student_service -host=172.17.0.2 $REPO_NAME/$IMAGE_NAME:latest && \
+                    docker ps && docker logs student_service && sleep 5
             - name: Run API Tests
               id: run-newman
               uses: anthonyvscode/newman-action@v1
