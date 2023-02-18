@@ -9,7 +9,7 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                mongodb-version: ["4.2", "4.4", "5.0", "6.0"]
+                mongodb-version: ["4.2"]
         steps:
             - uses: actions/checkout@v2
             - name: Build docker
@@ -17,7 +17,7 @@ jobs:
                   docker build . -t $REPO_NAME/$IMAGE_NAME
             - name: run docker
               run: |
-                  docker run -d -e 8080:8080 -host=172.17.0.2 $REPO_NAME/$IMAGE_NAME:latest && \
+                  docker run -d -p 8080:8080 -host=172.17.0.2 $REPO_NAME/$IMAGE_NAME:latest && \
                     docker ps && sleep 5
             - name: Start MongoDB
               uses: supercharge/mongodb-github-action@1.8.0

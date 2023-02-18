@@ -9,7 +9,7 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 
 COPY . /usr/src/app
 
-ENV MONGO_URI=mongodb://mongo:27017
+ENV MONGO_URI=mongodb://127.0.0.1:27017
 
 EXPOSE 8080
 
