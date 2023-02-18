@@ -13,7 +13,7 @@ jobs:
               run: |
                   docker build . -t $REPO_NAME/$IMAGE_NAME
             - name: Run mongo
-              run: docker run -d -p 27017:27107 -host=172.17.0.2 mongo:4
+              run: docker run -d -p 27017:27017 -host=172.17.0.2 mongo:4
             - name: Run docker
               run: |
                   docker run -d -p 8080:8080 -e MONGO_URI=mongodb://172.17.0.2:27017 -host=172.17.0.2 $REPO_NAME/$IMAGE_NAME:latest && \
