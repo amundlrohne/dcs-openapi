@@ -1,6 +1,5 @@
 import os
 from pymongo import MongoClient, errors, ASCENDING
-from bson.objectid import ObjectId
 
 client: MongoClient = MongoClient(os.getenv("MONGO_URI"))
 db = client['students']
