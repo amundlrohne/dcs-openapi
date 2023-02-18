@@ -1,9 +1,11 @@
 import os
-from pymongo import MongoClient
+from pymongo import MongoClient, errors, ASCENDING
 from bson.objectid import ObjectId
 
 client: MongoClient = MongoClient(os.getenv("MONGO_URI"))
 db = client['students']
+
+db.students.create_index([("student_id", ASCENDING)], unique=True)
 
 
 def add(student=None):
@@ -11,12 +13,13 @@ def add(student=None):
                                 "last_name": student.last_name})
 
     if res:
-        return 'already exists', 409
+        return 'name already exists', 409
 
-    count = db.students.count_documents({})
-    student.student_id = count
-    db.students.insert_one(student.to_dict())
-    return student.student_id
+    try:
+        doc_id = db.students.insert_one(student.to_dict()).inserted_id
+        return str(doc_id)
+    except errors.DuplicateKeyError:
+        return 'student_id already exists', 409
 
 
 def get_by_id(student_id=None, subject=None):
